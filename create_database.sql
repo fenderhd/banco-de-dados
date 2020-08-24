@@ -36,10 +36,8 @@ carga_horaria SMALLINT UNSIGNED NULL,
 periodo_aluno INT NOT NULL,
 INDEX turmas_FKIndex1(cursos_id), 
 INDEX turmas_FKIndex2(professores_id), 
-FOREIGN KEY(cursos_id) REFERENCES cursos(id) 
-ON DELETE NO ACTION ON UPDATE NO ACTION, 
+FOREIGN KEY(cursos_id) REFERENCES cursos(id), 
 FOREIGN KEY(professores_id) REFERENCES professores(id) 
-ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE matriculas( 
@@ -49,7 +47,6 @@ alunos_id INT NOT NULL,
 data_matricula DATE NULL, 
 PRIMARY KEY(id), INDEX matriculas_FKIndex1(alunos_id), 
 INDEX matriculas_FKIndex3(turmas_id), 
-FOREIGN KEY(alunos_id) REFERENCES alunos(id) 
-ON DELETE NO ACTION ON UPDATE NO ACTION, FOREIGN KEY(turmas_id) 
-REFERENCES turmas(id) ON DELETE NO ACTION ON UPDATE NO ACTION 
+FOREIGN KEY(alunos_id) REFERENCES alunos(id), 
+FOREIGN KEY(turmas_id) REFERENCES turmas(id) 
 );
